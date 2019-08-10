@@ -8,12 +8,13 @@ using TeduCoreApp.Data.Entities;
 
 namespace TeduCoreApp.Data.EF.Configurations
 {
-    public class ProductTagConfiguration : DbEntityConfiguration<ProductTag>
+    class AnnouncementConfiguration : DbEntityConfiguration<Announcement>
     {
-        public override void Configure(EntityTypeBuilder<ProductTag> entity)
+        public override void Configure(EntityTypeBuilder<Announcement> entity)
         {
-            entity.Property(c => c.TagId).HasMaxLength(50).IsRequired()
-            .HasColumnType("varchar(50)");
+            entity.HasKey(c => c.Id);
+            entity.Property(c => c.Id).IsRequired()
+            .HasColumnType("varchar(128)");
             // etc.
         }
     }
